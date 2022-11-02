@@ -21,5 +21,9 @@ export default {
   min-width: 200px;
   border-right: 2px solid gray;
   padding: 1rem;
+  overflow-y: auto;
+}
+.menu::-webkit-scrollbar{
+  width: 0;
 }
 </style>

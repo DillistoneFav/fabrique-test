@@ -1,6 +1,7 @@
 <template>
   <div>
-    index vue
+    <p>123</p>
+    <p>123</p>
   </div>
 </template>
 
@@ -18,5 +19,9 @@ export default {
 }
 .container{
   padding: 0 3rem;
+}
+.scrollable{
+  height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 </style>
