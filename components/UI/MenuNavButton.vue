@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link exact no-prefetch class="nav-link" :to="path" active-class="active" id="iconId">
+  <nuxt-link no-prefetch class="nav-link" :to="path" active-class="active">
     <img :src="iconPath" alt="nav icon" class="icon"/>
     <span>{{title}}</span>
   </nuxt-link>
@@ -39,6 +39,7 @@ export default {
   border-radius: 10px;
   font-weight: normal;
   transition: background-color 0.3s;
+  box-sizing: border-box;
 }
 .nav-link:hover{
   color: #93BC02;

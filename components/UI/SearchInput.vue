@@ -35,6 +35,7 @@ export default {
   transition: 0.3s;
   position: relative;
   width: 100%;
+  box-sizing: border-box;
 }
 .searchInput:focus{
   border: 2px solid #000;

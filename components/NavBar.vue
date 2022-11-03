@@ -1,7 +1,7 @@
 <template>
   <div class="navbar container">
     <div class="navbarTop">
-      <search-input placeholder-prop="placeholder" icon-path="/search.svg"/>
+      <search-input placeholder-prop="Search" icon-path="/search.svg"/>
       <div class="profileBlock">
         <img src="/profilePic.jpg" alt="profile pic" class="profileImage" loading="lazy"/>
         <div class="profileInfo">
@@ -30,12 +30,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .navbar{
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 100px;
+  box-sizing: border-box;
 }
 .navbarTop{
   display: flex;

@@ -1,27 +1,14 @@
 <template>
-  <div>
-    <p>123</p>
-    <p>123</p>
-  </div>
+    <router-link to="/poll">Go to app page!</router-link>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
+  layout: 'login'
 }
 </script>
 
-<style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.container{
-  padding: 0 3rem;
-}
-.scrollable{
-  height: calc(100vh - 100px);
-  overflow-y: auto;
-}
+<style scoped>
+
 </style>

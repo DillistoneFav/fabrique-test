@@ -1,12 +1,13 @@
 <template>
   <div>
-    users
+    black list
   </div>
 </template>
 
 <script>
 export default {
-  name: 'users'
+  name: 'blacklist',
+  layout: 'blacklist'
 }
 </script>
 

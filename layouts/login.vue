@@ -1,12 +1,12 @@
 <template>
-  <div>
-    call-center
+  <div class="center">
+    <Nuxt class="scrollable"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'callcenter'
+
 }
 </script>
 

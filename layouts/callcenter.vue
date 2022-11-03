@@ -3,6 +3,7 @@
     <Menu/>
     <div class="app">
       <NavBar/>
+      <RoutesHistory :routes="routes"/>
       <Nuxt class="scrollable container"/>
     </div>
   </div>
@@ -10,11 +11,18 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import Menu from "~/components/Menu";
+import Menu from "@/components/Menu";
 export default {
   components: {
     NavBar,
     Menu
+  },
+  data() {
+    return {
+      routes: [
+        {title: 'Колл-центр', link: '/callcenter'},
+      ]
+    }
   }
 }
 </script>
