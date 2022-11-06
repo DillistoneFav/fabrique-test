@@ -1,9 +1,13 @@
 <template>
-  <div class="content container">
+  <div class="content">
     <div class="Heading">
       <span>Добавить опрос</span>
     </div>
-    <slot/>
+    <div class="conditions">
+      <conditionsLayout/>
+      <conditionsLayout/>
+      <conditionsLayout/>
+    </div>
     <div class="addConditionsContainer">
       <img alt="plus icon" src="/plus.svg" loading="lazy"/>
       <p>Нажмите, чтобы добавить условие выборки</p>
@@ -24,10 +28,11 @@ export default {
   width: 100%;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 1rem;
   font-size: 28px;
   color: gray;
   font-weight: bold;
+  padding: 0 3rem;
+  margin-bottom: 1rem;
 }
 .content{
   padding-bottom: 1rem;
@@ -44,10 +49,23 @@ export default {
   color: #009118;
   font-size: 20px;
   cursor: pointer;
+  margin: 1rem 3rem 0;
 }
 .addConditionsContainer img{
   height: 30px;
   width: 30px;
   margin-bottom: 0.5rem;
+}
+
+
+
+.conditions .conditionContainer:nth-child(1){
+  background: #fff2e5;
+}
+.conditions .conditionContainer:nth-child(2){
+  background: #F8FAFF;
+}
+.conditions .conditionContainer:nth-child(3){
+  background: #FAFFF8;
 }
 </style>
