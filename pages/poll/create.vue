@@ -15,7 +15,7 @@
         logic
       </div>
       <div v-if="selectedTab === 'ConditionsTab'">
-        <conditionsLayout/>
+        Conditions
       </div>
       <div v-if="selectedTab === 'RespondentsTab'">
         <RespondentsTabContent/>
@@ -25,10 +25,9 @@
 </template>
 
 <script>
-import ConditionsLayout from "@/components/Conditions/ConditionsLayout";
+
 export default {
   layout: 'poll',
-  components: {ConditionsLayout}
 }
 </script>
 

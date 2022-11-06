@@ -3,7 +3,7 @@
     <Menu/>
     <div class="app">
       <NavBar/>
-      <Nuxt class="scrollable container"/>
+      <Nuxt class="container"/>
     </div>
   </div>
 </template>
@@ -27,6 +27,5 @@ export default {
 }
 .app{
   width: 100%;
-  overflow: hidden;
 }
 </style>

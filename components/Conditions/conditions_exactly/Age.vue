@@ -4,7 +4,7 @@
       <div v-for="(ageItem, index) in ageArray" :key="ageItem.id" class="settingsCont">
         <div class="settingsTitle">
           <div class="eitherLabel" v-if="index > 0">или</div>
-          Диапазон {{index + 1}}
+          Диапазон {{ index + 1 }}
         </div>
         <div class="itemsExactlyContainer">
           <div class="settingsFromTo">
@@ -64,18 +64,21 @@ export default {
       this.$store.commit('conditionsStore/addAgeItem')
     },
     removeCondition() {
-
+      this.$store.commit('conditionsStore/removeCondition', 'ageArray')
     },
     updateValue(ageItem, key) {
       let newItem = {...ageItem, [key]: Number(event.target.value)}
       this.$store.commit('conditionsStore/changeAgeValue', newItem)
-    }
+    },
+  },
+  unmounted() {
+    this.$store.commit('conditionsStore/removeSelectedCondition', 'age')
   }
 }
 </script>
 
 <style>
-.eitherLabel{
+.eitherLabel {
   height: 100%;
   background: #ffd4a0;
   border-radius: 10px;
@@ -98,12 +101,13 @@ export default {
   justify-content: center;
 }
 
-.settingsCont{
+.settingsCont {
   width: 100%;
   display: flex;
   margin-top: 1rem;
 }
-.settingsCont:first-of-type{
+
+.settingsCont:first-of-type {
   margin-top: 0;
 }
 
@@ -121,6 +125,12 @@ export default {
 
 .settingsFromTo {
   display: flex;
+}
+
+.settingsFromTo input::-webkit-outer-spin-button,
+.settingsFromTo input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .rangeFromTo:first-of-type {

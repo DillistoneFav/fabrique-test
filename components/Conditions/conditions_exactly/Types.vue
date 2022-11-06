@@ -32,7 +32,7 @@
       <my-button
         icon-path="/delete.svg"
         text="Удалить условие"
-        @click.native=""
+        @click.native="removeCondition"
         class="deleteButton"
       />
     </div>
@@ -65,6 +65,9 @@ export default {
     addTypeItem() {
       this.$store.commit('conditionsStore/addTypeItem')
     },
+    removeCondition() {
+      this.$store.commit('conditionsStore/removeCondition', 'typesArray')
+    },
     updateValue(item) {
       let newItem = {...item, value: event.target.value}
       this.$store.commit('conditionsStore/changeTypeValue', newItem)
@@ -75,6 +78,9 @@ export default {
         mainItem.selected = !!this.typesArray.find(item => item.value === mainItem.value);
       })
     }
+  },
+  unmounted() {
+    this.$store.commit('conditionsStore/removeSelectedCondition', 'type')
   }
 }
 </script>

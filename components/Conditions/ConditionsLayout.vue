@@ -1,20 +1,20 @@
 <template>
   <div class="conditionContainer">
     <div class="conditionType">
-      <div class="conditionIndex">Условие {index}</div>
+      <div class="conditionIndex">Условие {{ number }}</div>
       <div class="conditionSelect">
-        <select v-model="selected">
-          <option disabled selected value="">
-            Выберите условия
-          </option>
-          <option value="age">
-            Возраст респондента
-          </option>
-          <option value="type">
-            Тип карты лояльности
-          </option>
-          <option value="status">
-            Статус карты лояльности
+        <select
+          :value="selected"
+          @input="updateValue"
+        >
+          <option disabled selected value="">Выберите условия</option>
+          <option
+            v-for="condition in selectableConditions"
+            :value="condition.value"
+            :disabled="condition.selected === true"
+            :key="condition.value"
+          >
+            {{condition.text}}
           </option>
         </select>
       </div>
@@ -34,26 +34,49 @@ export default {
   name: 'conditionsLayout',
   components: {Status, Types, Age},
   computed: {
-    conditionsStore() {
-      return this.$store.getters["conditionsStore/counterValue"]
+    selectedConditions() {
+      return this.$store.getters["conditionsStore/selectedConditions"]
+    },
+    selectableConditions() {
+      return this.$store.getters["conditionsStore/selectableConditions"]
     }
   },
   data() {
     return {
-      selected: ''
+      selected: '',
     }
-  }
+  },
+  props: {
+    number: {
+      type: Number,
+      required: true
+    }
+  },
+  methods: {
+    updateValue() {
+      this.selected = event.target.value
+      this.$store.commit('conditionsStore/addSelectedCondition', event.target.value)
+      this.updateDisables()
+    },
+    updateDisables() {
+      this.selectableConditions.forEach(mainItem => {
+        mainItem.selected = !!this.selectedConditions.find(item => item === mainItem.value);
+      })
+    },
+  },
 }
 </script>
 
 <style scoped>
-.conditionContainer{
+.conditionContainer {
   padding: 1rem 3rem 1rem 3rem;
 }
-.conditionType{
+
+.conditionType {
   display: flex;
 }
-.conditionIndex{
+
+.conditionIndex {
   width: 25%;
   min-width: 200px;
   display: flex;
@@ -61,10 +84,12 @@ export default {
   font-weight: bold;
   font-size: 24px;
 }
-.conditionSelect{
+
+.conditionSelect {
   width: 75%;
 }
-.conditionSelect select{
+
+.conditionSelect select {
   border: 2px solid lightgray !important;
   border-radius: 10px;
   padding: 10px;

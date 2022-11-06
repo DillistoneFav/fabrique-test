@@ -4,7 +4,7 @@
     <div class="app">
       <NavBar/>
       <RoutesHistory :routes="routes"/>
-      <Nuxt class="scrollable container"/>
+      <Nuxt class="container"/>
     </div>
   </div>
 </template>
